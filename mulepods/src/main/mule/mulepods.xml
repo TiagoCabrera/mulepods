@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="54879743-523f-4380-8d41-1cd419504603" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mulepodsFlow" doc:id="f079944c-5cd0-4168-8b54-73dbc8ec7081" >
+		<http:listener doc:name="Listener" doc:id="36b6c6d1-e8a5-4497-b918-f26672dffd1a" config-ref="HTTP_Listener_config" path="/tes"/>
+		<set-payload value='#[{ "name":"John", "age":30, "car":null }]' doc:name="Set Payload" doc:id="1aa91c18-005f-41e3-858d-101a1db1c532" mimeType="application/json"/>
+	</flow>
+</mule>
